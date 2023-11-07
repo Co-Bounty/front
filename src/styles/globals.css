@@ -16,12 +16,18 @@
   }
 }
 
+@font-face {
+  font-family: "LINESeedKR-Rg";
+  font-weight: 400;
+  src: local('/public/fonts/LINESeedKR-Rg.woff2');
+}
+
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  font-weight: 700;
+  src: local('/public/fonts/LINESeedKR-Bd.woff2');
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "LINESeedKR-Rg", "LINESeedKR-Bd", sans-serif;
 }
