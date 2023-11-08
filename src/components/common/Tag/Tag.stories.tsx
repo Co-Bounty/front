@@ -14,7 +14,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const defalut: Story = {
+export const Defalut: Story = {
   args: {
     emoji: '👍',
     text: '좋아요',
