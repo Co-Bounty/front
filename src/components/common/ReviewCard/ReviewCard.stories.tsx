@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import ReviewCard from '@components/common/ReviewCard/ReviewCard';
-import { markdownDummy } from '@utils/dummy';
+import { markdownDummy } from '@utils/constants/dummy.constant';
 
 const meta = {
   title: 'Review/common/ReviewCard',
@@ -28,6 +28,10 @@ export const Defalut: Story = {
         text: '버그',
       },
     ],
+    highlight: {
+      highlightStart: 10,
+      highlightEnd: 20,
+    },
   },
 };
 

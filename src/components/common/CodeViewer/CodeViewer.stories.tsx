@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import CodeViewer from '@components/common/CodeViewer/CodeViewer';
-import { buttonCodeDummy } from '@utils/dummy';
+import { buttonCodeDummy } from '@utils/constants/dummy.constant';
 
 const meta = {
   title: 'Review/common/CodeViewer',

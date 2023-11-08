@@ -1,7 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import MainReview from '@components/ui/Review/MainReview';
-import { buttonCodeDummy, markdownDummy } from '@utils/dummy';
+import {
+  buttonCodeDummy,
+  markdownDummy,
+  markdownDummy2,
+} from '@utils/constants/dummy.constant';
 
 const meta = {
   title: 'Review/UI/MainReview',
@@ -35,20 +39,36 @@ export const Defalut: Story = {
             text: '버그',
           },
         ],
+        highlight: {
+          highlightStart: 15,
+          highlightEnd: 20,
+        },
+      },
+      {
+        contents: markdownDummy2,
+        tags: [
+          {
+            emoji: '♻️',
+            text: '리펙토링',
+          },
+          {
+            emoji: '🐛',
+            text: '버그',
+          },
+          {
+            emoji: '♻️',
+            text: '리펙토링',
+          },
+          {
+            emoji: '🐛',
+            text: '버그',
+          },
+        ],
+        highlight: {
+          highlightStart: 5,
+          highlightEnd: 20,
+        },
       },
     ],
-  },
-};
-
-export const ReviewOnClicked: Story = {
-  args: {
-    ...Defalut.args,
-    codeViewer: {
-      ...Defalut.args.codeViewer,
-      highlight: {
-        highlightStart: 1,
-        highlightEnd: 10,
-      },
-    },
   },
 };
