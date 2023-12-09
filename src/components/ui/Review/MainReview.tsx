@@ -29,7 +29,7 @@ const MainReview = ({ codeViewer, reviews }: MainReviewProps) => {
           highlight={highlight}
         />
       </div>
-      <div className={`relative flex flex-col w-3/5 p-2 gap-2`}>
+      <div className={`relative flex flex-col w-4/5 p-2 gap-2`}>
         {reviews ? (
           <>
             {reviews.map((review, index) => (

@@ -1,16 +1,45 @@
-import ReviewCard from '@components/common/ReviewCard/ReviewCard';
+import Link from 'next/link';
+
+import Button from '@components/common/Button/Button';
+import Tag from '@components/common/Tag/Tag';
 
 export default function Home() {
+  const tags = [
+    { emoji: '🩻', text: '아키텍처', x: '20%', y: '30%', rotate: 'rotate-12' },
+    {
+      emoji: '💡',
+      text: '새로운 관점',
+      x: '70%',
+      y: '20%',
+      rotate: '-rotate-2',
+    },
+    { emoji: '🐛', text: '버그', x: '40%', y: '15%', rotate: 'rotate-6' },
+    { emoji: '♻️', text: '리펙토링', x: '55%', y: '25%', rotate: '-rotate-12' },
+  ];
+
   return (
-    <ReviewCard
-      contents={
-        '# TCP 슬로우 스타트 14kb rule\n' +
-        '* 첫 응답 패킷은 14kb 네트워크 통신의 속도 조절 알고리즘 TCP 슬로우 스타트에 의해 정해진 것\n' +
-        '* 슬로우 스타트는 네트워크의 최대 대역폭을 파악할 수 있을 때까지 점진적으로 전송량을 증가시키는것\n' +
-        '* 이 방식에 따라 첫 패킷 이후에 2배씩 패킷 사이즈를 증가시킴\n' +
-        '* 초기 패킷이 14kb이므로 웹 최적화시 초기 14kb를 염두해야하는 이유\n' +
-        '* TCP 슬로우 스타트는 혼잡을 피하기 위해서 네트워크의 용량에 적당한 전송 속도를 찾고자 점진적으로 속도를 높여나가는 방식'
-      }
-    />
+    <div className={'h-screen w-screen bg-coDark'}>
+      {tags.map((tag, index) => (
+        <div
+          key={index}
+          className={tag.rotate}
+          style={{
+            position: 'absolute',
+            left: tag.x,
+            top: tag.y,
+          }}
+        >
+          <Tag emoji={tag.emoji} text={tag.text} />
+        </div>
+      ))}
+      <div className={'flex flex-col items-center justify-center h-full'}>
+        <h1 className={'text-4xl text-white font-extrabold'}>Co-Bounty</h1>
+        <div className={'mt-6'}>
+          <Link href={'/main'}>
+            <Button content={'GitHub 로그인'} size={'large'} />
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

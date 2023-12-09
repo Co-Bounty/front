@@ -1,6 +1,7 @@
 import '@styles/globals.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
 
@@ -11,11 +12,7 @@ export const metadata: Metadata = {
 
 library.add(faCheckSquare, faCoffee);
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>

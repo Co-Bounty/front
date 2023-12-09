@@ -7,7 +7,12 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        coDark: '#232323',
+        coWhite: 'rgba(255, 255, 255, 0.1)',
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 };

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 import Tag, { TagProps } from '@components/common/Tag/Tag';
 import { highlightType } from '@utils/types/common.type';
@@ -32,14 +31,13 @@ const ReviewCard = ({
 
   return (
     <div
-      className={`border-2 m-2 rounded-xl bg-white cursor-pointer overflow-scroll transition-all duration-300 ease-in-out 
+      className={`border-2 m-2 rounded-xl cursor-pointer overflow-scroll transition-all duration-300 ease-in-out bg-white 
       ${reviewFocus ? `absolute inset-0` : ``} 
-      ${minimal ? 'p-6' : 'p-10'}`}
+      ${minimal ? 'p-4' : 'p-10'}`}
       onClick={handleReviewClick}
     >
       <Markdown
-        remarkPlugins={[remarkGfm]}
-        className={`prose bg-white w-full ${minimal && 'prose-sm'} ${
+        className={`prose w-full ${minimal && 'prose-sm'} ${
           reviewFocus ? 'line-clamp-none' : 'line-clamp-5'
         }`}
       >

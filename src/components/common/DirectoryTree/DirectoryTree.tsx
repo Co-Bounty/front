@@ -15,7 +15,12 @@ const DirectoryTree = ({ data }: DirectoryTreeProps) => {
   if (data.type === 'folder') {
     return (
       <div>
-        <div onClick={toggle} style={{ cursor: 'pointer' }}>
+        <div
+          onClick={toggle}
+          className={`
+        ${'text-white'}
+        `}
+        >
           <FontAwesomeIcon icon={'folder'} /> {' ' + data.name}
         </div>
         {isOpen && data.children && (
@@ -29,7 +34,7 @@ const DirectoryTree = ({ data }: DirectoryTreeProps) => {
     );
   }
 
-  return <div>{' ' + data.name}</div>;
+  return <div className={'text-white'}>{' ' + data.name}</div>;
 };
 
 export default DirectoryTree;
