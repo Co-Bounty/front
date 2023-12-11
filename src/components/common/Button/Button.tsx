@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = ({ content, onClick, size = 'medium' }: ButtonProps) => {
   return (
     <button
-      className={`bg-coWhite text-white rounded-md font-bold
+      className={`bg-coWhite text-white rounded-md font-bold hover:bg-slate-400
         ${(() => {
           switch (size) {
             case 'small':
