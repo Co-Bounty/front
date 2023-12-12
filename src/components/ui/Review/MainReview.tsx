@@ -38,7 +38,6 @@ const MainReview = ({ codeViewer, reviews }: MainReviewProps) => {
                 contents={review.contents}
                 tags={review.tags}
                 highlight={review.highlight}
-                minimal={true}
                 setHighlightFuc={handleHighlight}
               />
             ))}

@@ -1,0 +1,24 @@
+{
+  "auth": {
+    "userName": "dev-dong-su",
+    "githubLink": "https://github.com/dev-dong-su",
+    "profileImage": "https://avatars.githubusercontent.com/u/49144050?v=4"
+  },
+  "posts": [
+    {
+      "id": 1,
+      "title": "",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,11 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import MainReview from '@components/ui/Review/MainReview';
+
 import {
   buttonCodeDummy,
   markdownDummy,
   markdownDummy2,
-} from '@utils/constants/dummy.constant';
+} from '../../../constants/dummy.constant';
 
 const meta = {
   title: 'Review/UI/MainReview',

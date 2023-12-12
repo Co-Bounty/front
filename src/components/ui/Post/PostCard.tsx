@@ -1,12 +1,13 @@
 import MarkdownCard from '@components/common/Card/MarkdownCard/MarkdownCard';
 import UserInfoCard from '@components/common/Card/UserInfoCard/UserInfoCard';
-import { TagProps } from '@components/common/Tag/Tag';
+import Tag, { TagProps } from '@components/common/Tag/Tag';
 
 interface PostCardProps {
   userName: string;
   profileImage: string;
+  title: string;
   githubLink: string;
-  tags: TagProps[];
+  tags?: TagProps[];
   contents: string;
 }
 
@@ -16,6 +17,7 @@ const PostCard = ({
   profileImage,
   userName,
   tags,
+  title,
 }: PostCardProps) => {
   return (
     <div className={'flex gap-4 min-w-fit bg-coWhite p-4 rounded-md'}>
@@ -26,8 +28,18 @@ const PostCard = ({
           profileImage={profileImage}
         />
       </div>
-      <div>
-        <MarkdownCard contents={contents} tags={tags} readonly={true} />
+      <div className={'flex flex-col gap-2'}>
+        <div className={'text-3xl text-white font-extrabold'}>{title}</div>
+        <div>
+          {tags && (
+            <div className={`flex flex-wrap gap-1`}>
+              {tags.map((tag: TagProps) => (
+                <Tag key={tag.text} emoji={tag.emoji} text={tag.text} />
+              ))}
+            </div>
+          )}
+        </div>
+        <MarkdownCard contents={contents} readonly={true} />
       </div>
     </div>
   );

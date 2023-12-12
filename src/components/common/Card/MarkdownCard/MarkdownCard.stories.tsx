@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import MarkdownCard from '@components/common/Card/MarkdownCard/MarkdownCard';
-import { markdownDummy } from '@utils/constants/dummy.constant';
+
+import { markdownDummy } from '../../../../constants/dummy.constant';
 
 const meta = {
   title: 'Review/common/card/MarkdownCard',
