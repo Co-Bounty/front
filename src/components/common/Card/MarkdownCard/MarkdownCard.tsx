@@ -6,22 +6,23 @@ import { highlightType } from '@utils/types/common.type';
 
 export interface ReviewCardProps {
   contents?: string;
-  minimal?: boolean;
   tags?: TagProps[];
+  readonly?: boolean;
   highlight?: highlightType;
   setHighlightFuc?: (highlight: highlightType) => void;
 }
 
-const ReviewCard = ({
+const MarkdownCard = ({
   contents,
-  minimal,
   tags,
   setHighlightFuc,
   highlight,
+  readonly = false,
 }: ReviewCardProps) => {
   const [reviewFocus, setReviewFocus] = useState<boolean>(false);
 
   const handleReviewClick = () => {
+    if (readonly) return;
     if (setHighlightFuc) setHighlightFuc(highlight ?? {});
 
     if (reviewFocus && setHighlightFuc) setHighlightFuc({});
@@ -31,24 +32,19 @@ const ReviewCard = ({
 
   return (
     <div
-      className={`border-2 m-2 rounded-xl cursor-pointer overflow-scroll transition-all duration-300 ease-in-out bg-white 
-      ${reviewFocus ? `absolute inset-0` : ``} 
-      ${minimal ? 'p-4' : 'p-10'}`}
+      className={`flex flex-col p-4 justify-between border-2 rounded-md cursor-pointer bg-white 
+      ${reviewFocus ? `absolute inset-0 overflow-scroll` : ''}`}
       onClick={handleReviewClick}
     >
       <Markdown
-        className={`prose w-full ${minimal && 'prose-sm'} ${
+        className={`prose rounded-md w-full ${
           reviewFocus ? 'line-clamp-none' : 'line-clamp-5'
         }`}
       >
         {contents}
       </Markdown>
       {tags && (
-        <div
-          className={`flex h-vh flex-wrap gap-1 p-4 ${
-            minimal ? 'text-xs' : 'text-sm'
-          }`}
-        >
+        <div className={`flex flex-wrap gap-1 p-4`}>
           {tags.map((tag: TagProps) => (
             <Tag key={tag.text} emoji={tag.emoji} text={tag.text} />
           ))}
@@ -58,4 +54,4 @@ const ReviewCard = ({
   );
 };
 
-export default ReviewCard;
+export default MarkdownCard;

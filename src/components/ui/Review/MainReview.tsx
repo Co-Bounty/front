@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
+import ContantsCard, {
+  ReviewCardProps,
+} from '@components/common/Card/MarkdownCard/MarkdownCard';
 import CodeViewer, {
   CodeViewerProps,
 } from '@components/common/CodeViewer/CodeViewer';
-import ReviewCard, {
-  ReviewCardProps,
-} from '@components/common/ReviewCard/ReviewCard';
 import { highlightType } from '@utils/types/common.type';
 
 export interface MainReviewProps {
@@ -29,11 +29,11 @@ const MainReview = ({ codeViewer, reviews }: MainReviewProps) => {
           highlight={highlight}
         />
       </div>
-      <div className={`relative flex flex-col w-4/5 p-2 gap-2`}>
+      <div className={`relative flex flex-col items-center w-4/5 p-2 gap-2`}>
         {reviews ? (
           <>
             {reviews.map((review, index) => (
-              <ReviewCard
+              <ContantsCard
                 key={index}
                 contents={review.contents}
                 tags={review.tags}

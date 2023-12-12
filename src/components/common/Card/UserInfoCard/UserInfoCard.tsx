@@ -17,7 +17,7 @@ const UserInfoCard = ({
   return (
     <div
       className={
-        'flex flex-col gap-2 items-center bg-coWhite rounded-md p-4 text-white'
+        'flex flex-col h-full gap-2 justify-center items-center bg-coWhite rounded-md p-4 text-white'
       }
     >
       <Image
@@ -25,7 +25,7 @@ const UserInfoCard = ({
         alt={'profile image'}
         width={100}
         height={100}
-        className={'rounded-full'}
+        className={'rounded-full shadow-md'}
       />
       <div className={'font-bold'}>{userName}</div>
       <Link href={githubLink}>

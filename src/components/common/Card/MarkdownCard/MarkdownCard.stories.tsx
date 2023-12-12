@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import ReviewCard from '@components/common/ReviewCard/ReviewCard';
+import MarkdownCard from '@components/common/Card/MarkdownCard/MarkdownCard';
 import { markdownDummy } from '@utils/constants/dummy.constant';
 
 const meta = {
-  title: 'Review/common/ReviewCard',
-  component: ReviewCard,
+  title: 'Review/common/card/MarkdownCard',
+  component: MarkdownCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ReviewCard>;
+} satisfies Meta<typeof MarkdownCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -38,6 +38,5 @@ export const Defalut: Story = {
 export const Minimal: Story = {
   args: {
     ...Defalut.args,
-    minimal: true,
   },
 };

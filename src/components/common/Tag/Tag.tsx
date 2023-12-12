@@ -1,5 +1,3 @@
-'use client';
-
 export interface TagProps {
   emoji: string;
   text: string;
