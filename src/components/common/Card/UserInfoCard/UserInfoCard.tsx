@@ -8,7 +8,7 @@ const UserInfoCard = ({ userName, githubLink, profileImage }: UserInfoType) => {
   return (
     <div
       className={
-        'flex flex-col w-48 h-full gap-4 justify-center items-center bg-coWhite rounded-md p-4 text-white'
+        'flex flex-col w-32 h-full gap-4 justify-center items-center bg-coWhite rounded-md p-4 text-white'
       }
     >
       <Image

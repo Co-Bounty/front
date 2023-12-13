@@ -27,6 +27,7 @@ export default function Home() {
   const handleLoginButton = async () => {
     const data = await authApi.login();
     setRecoilState(data);
+    console.log(data);
     router.push('/main');
   };
 

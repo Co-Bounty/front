@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import Markdown from 'react-markdown';
 
@@ -37,7 +38,7 @@ const MarkdownCard = ({
       onClick={handleReviewClick}
     >
       <Markdown
-        className={`prose rounded-md w-full ${
+        className={`prose prose-sm rounded-md w-full ${
           reviewFocus ? 'line-clamp-none' : 'line-clamp-5'
         }`}
       >

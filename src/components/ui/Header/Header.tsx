@@ -1,10 +1,10 @@
-import Button from '@components/common/Button/Button';
+import DropDown from '@components/common/DropDown/DropDown';
 
 const Header = () => {
   return (
     <div className={'flex justify-between items-center w-full h-16 mt-6'}>
       <div className={'text-white text-3xl font-bold'}>Co-Bounty</div>
-      <Button content={'메뉴'} />
+      <DropDown />
     </div>
   );
 };

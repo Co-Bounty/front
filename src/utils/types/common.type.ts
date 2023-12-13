@@ -1,3 +1,5 @@
+import { TagProps } from '@components/common/Tag/Tag';
+
 export type FileSystemItem = {
   name: string;
   type: 'file' | 'folder';
@@ -14,4 +16,12 @@ export interface UserInfoType {
   userName: string;
   githubLink: string;
   profileImage: string;
+}
+
+export interface PostInfoType {
+  postId: number;
+  userInfo: UserInfoType;
+  title: string;
+  tags?: TagProps[];
+  contents: string;
 }
