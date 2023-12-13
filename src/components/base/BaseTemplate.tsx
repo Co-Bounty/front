@@ -8,7 +8,7 @@ interface BaseTemplateProps {
 
 const BaseTemplate = ({ children }: BaseTemplateProps) => {
   return (
-    <div className={'m-auto max-w-6xl'}>
+    <div>
       <Header />
       <div className={'mt-10'}>{children}</div>
     </div>

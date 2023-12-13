@@ -29,17 +29,23 @@ const MainReview = ({ codeViewer, reviews }: MainReviewProps) => {
           highlight={highlight}
         />
       </div>
-      <div className={`relative flex flex-col items-center w-4/5 p-2 gap-2`}>
+      <div
+        className={`relative flex flex-col bg-coDark items-center w-4/5 p-2 gap-2`}
+      >
         {reviews ? (
           <>
             {reviews.map((review, index) => (
-              <ContantsCard
+              <div
+                className={'border-2 border-gray-500 rounded-md'}
                 key={index}
-                contents={review.contents}
-                tags={review.tags}
-                highlight={review.highlight}
-                setHighlightFuc={handleHighlight}
-              />
+              >
+                <ContantsCard
+                  contents={review.contents}
+                  tags={review.tags}
+                  highlight={review.highlight}
+                  setHighlightFuc={handleHighlight}
+                />
+              </div>
             ))}
           </>
         ) : (

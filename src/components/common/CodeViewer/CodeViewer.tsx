@@ -16,6 +16,7 @@ const CodeViewer = ({ code, language, highlight }: CodeViewerProps) => {
       customStyle={{
         margin: 0,
         borderRadius: 0,
+        height: '100%',
       }}
       language={language}
       style={oneDark}

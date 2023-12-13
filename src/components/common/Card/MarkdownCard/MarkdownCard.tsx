@@ -33,12 +33,12 @@ const MarkdownCard = ({
 
   return (
     <div
-      className={`flex flex-col p-4 justify-between border-2 rounded-md cursor-pointer bg-white 
+      className={`flex flex-col p-4 justify-between rounded-md cursor-pointer bg-white
       ${reviewFocus ? `absolute inset-0 overflow-scroll` : ''}`}
       onClick={handleReviewClick}
     >
       <Markdown
-        className={`prose prose-sm rounded-md w-full ${
+        className={`prose prose-sm bg-white rounded-md w-full ${
           reviewFocus ? 'line-clamp-none' : 'line-clamp-5'
         }`}
       >

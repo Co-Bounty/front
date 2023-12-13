@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 
 import Button from '@components/common/Button/Button';
 
+interface MarkdownEditorProps {
+  value?: string;
+  onChange?: (value?: string) => void;
+}
+
 const MarkdownEditor = () => {
   const [value, setValue] = useState<string>('');
 

@@ -1,3 +1,7 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import MarkdownCard from '@components/common/Card/MarkdownCard/MarkdownCard';
 import UserInfoCard from '@components/common/Card/UserInfoCard/UserInfoCard';
 import Tag, { TagProps } from '@components/common/Tag/Tag';
@@ -8,13 +12,21 @@ const PostCard = ({
   userInfo,
   title,
   tags,
-  postId,
+  category,
+  id,
 }: PostInfoType) => {
+  const router = useRouter();
+
+  const handlePostClick = () => {
+    router.push(`/posts/${id}`);
+  };
+
   return (
     <div
       className={
-        'flex gap-4 mx-auto w-1/2 bg-coWhite p-4 rounded-md cursor-pointer'
+        'flex gap-10 items-center min-w-[853px] bg-coWhite py-4 px-10 rounded-md cursor-pointer'
       }
+      onClick={handlePostClick}
     >
       <div>
         <UserInfoCard
@@ -24,6 +36,13 @@ const PostCard = ({
         />
       </div>
       <div className={'flex flex-col gap-2'}>
+        <div
+          className={
+            'bg-coWhite py-1 px-2 text-white text-xs rounded-full w-fit'
+          }
+        >
+          {category}
+        </div>
         <div className={'text-2xl text-white font-extrabold'}>{title}</div>
         <div>
           {tags && (
