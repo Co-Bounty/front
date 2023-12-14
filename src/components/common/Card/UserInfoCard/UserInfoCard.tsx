@@ -10,13 +10,14 @@ const UserInfoCard = ({
   profileImage,
   row,
 }: UserInfoType) => {
+  const image = 'https://avatars.githubusercontent.com/u/49144050?v=4';
   return (
     <div
-      className={`flex h-full gap-4 justify-center items-center bg-coWhite rounded-md p-4 text-white
+      className={`flex h-full gap-4 justify-center items-center rounded-md p-2 text-white
         ${row ? 'flex-row w-fit' : 'flex-col w-32'}`}
     >
       <Image
-        src={profileImage}
+        src={profileImage === 'test' ? image : profileImage}
         alt={'profile image'}
         width={64}
         height={64}

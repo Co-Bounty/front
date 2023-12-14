@@ -24,6 +24,7 @@ export const Default: Story = {
         { name: 'file1.txt', type: 'file', path: '/root/subfolder/file1.txt' },
         { name: 'file2.png', type: 'file', path: '/root/subfolder/file2.png' },
         {
+          path: '/root/subfolder',
           name: 'subfolder',
           type: 'folder',
           children: [

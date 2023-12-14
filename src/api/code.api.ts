@@ -2,21 +2,32 @@ import api from '@api/index';
 import { FileDirectoryType, ReviewCodeType } from '@utils/types/common.type';
 
 export const codeApi = {
-  getCode: async (postId: number): Promise<FileDirectoryType> => {
-    const { data } = await api.get(`/code/${postId}/`);
+  getCode: async (postId: string): Promise<FileDirectoryType> => {
+    const { data } = await api.get(`/posts/${postId}/code`);
 
-    return data;
+    return data.data;
   },
 
-  getCodeReview: async (postId: number): Promise<ReviewCodeType> => {
+  getCodeReview: async (postId: string): Promise<ReviewCodeType> => {
     const { data } = await api.get(`/review/${postId}/`);
 
     return data;
   },
 
   getGitHubCode: async (url: string): Promise<string> => {
-    const { data } = await api.get(`/filePath`);
+    try {
+      const response = await fetch(url);
 
-    return data.code;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.text();
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching the data:', error);
+      return 'null';
+    }
   },
 };

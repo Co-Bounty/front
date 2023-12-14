@@ -1,3 +1,5 @@
+import { faFile, faFolder } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 
 import { FileSystemItem } from '@utils/types/common.type';
@@ -9,13 +11,13 @@ interface DirectoryTreeProps {
 
 const DirectoryTree = ({ data, onSelect }: DirectoryTreeProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [filePath, setFilePath] = useState<string>('');
+  const [filePath, setFilePath] = useState<string | null>('');
 
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     if (data.type === 'file') {
-      setFilePath(data.path);
+      setFilePath(data.url);
     }
   }, []);
 
@@ -28,13 +30,13 @@ const DirectoryTree = ({ data, onSelect }: DirectoryTreeProps) => {
         ${'text-white cursor-pointer'}
         `}
         >
-          {data.name}
+          <FontAwesomeIcon icon={faFolder} /> {data.fileName}
         </div>
         {isOpen && data.children && (
           <div style={{ paddingLeft: '20px' }}>
             {data.children.map((child) => (
               <DirectoryTree
-                key={child.name}
+                key={child.fileName}
                 data={child}
                 onSelect={onSelect}
               />
@@ -48,9 +50,9 @@ const DirectoryTree = ({ data, onSelect }: DirectoryTreeProps) => {
   return (
     <div
       className={'text-white cursor-pointer'}
-      onClick={() => onSelect && onSelect(filePath)}
+      onClick={() => onSelect && onSelect(filePath!)}
     >
-      {' ' + data.name}
+      <FontAwesomeIcon icon={faFile} /> {data.fileName}
     </div>
   );
 };

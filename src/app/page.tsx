@@ -6,7 +6,7 @@ import { useSetRecoilState } from 'recoil';
 import { authApi } from '@api/auth.api';
 import Button from '@components/common/Button/Button';
 import Tag from '@components/common/Tag/Tag';
-import { userState } from '@utils/atom/user.atom';
+import { userState } from '@utils/atoms/user.atom';
 
 export default function Home() {
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function Home() {
             top: tag.y,
           }}
         >
-          <Tag emoji={tag.emoji} text={tag.text} />
+          <Tag text={tag.text} />
         </div>
       ))}
       <div className={'flex flex-col items-center justify-center h-full'}>

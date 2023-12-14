@@ -1,9 +1,7 @@
-import { TagProps } from '@components/common/Tag/Tag';
-
 export type FileSystemItem = {
-  name: string;
+  fileName: string;
   type: 'file' | 'folder';
-  path: string;
+  url: string | null;
   children?: FileSystemItem[];
 };
 
@@ -29,15 +27,16 @@ export interface PostInfoType {
   id?: number;
   category?: string;
   userInfo: UserInfoType;
-  githubLink?: string;
+  repositoryUrl?: string;
   title: string;
-  tags?: TagProps[];
+  tags?: string[];
   contents: string;
 }
 
 export interface ReviewInfoType {
+  filePath?: string;
   contents: string;
-  tags?: TagProps[];
+  tags?: string[];
   highlight?: highlightType;
 }
 
@@ -47,6 +46,20 @@ export interface CodeViewerType {
 }
 
 export interface ReviewCodeType {
-  id?: number;
-  reviews?: ReviewInfoType[];
+  reviews: ReviewInfoType[];
+}
+
+export interface ModalType {
+  open?: boolean;
+  children?: React.ReactNode;
+}
+
+export interface PostReviewType {
+  id?: string;
+  userId: number;
+  postId: string;
+  filePath: string;
+  contents: string;
+  highlight: highlightType;
+  tags: string[];
 }

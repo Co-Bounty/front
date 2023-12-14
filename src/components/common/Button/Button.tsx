@@ -17,7 +17,7 @@ const Button = ({ content, onClick, size = 'medium' }: ButtonProps) => {
             case 'medium':
               return 'text-md px-4 py-2';
             case 'large':
-              return 'text-lg px-4 py-2';
+              return 'text-xl px-6 py-4';
           }
         })()}
       `}

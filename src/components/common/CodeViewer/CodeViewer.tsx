@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { highlightType } from '@utils/types/common.type';
 
@@ -17,9 +17,10 @@ const CodeViewer = ({ code, language, highlight }: CodeViewerProps) => {
         margin: 0,
         borderRadius: 0,
         height: '100%',
+        fontSize: '1rem',
       }}
       language={language}
-      style={oneDark}
+      style={vscDarkPlus}
       showLineNumbers={true}
       wrapLines={true}
       lineProps={(lineNumber) => {

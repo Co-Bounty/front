@@ -8,7 +8,7 @@ import { useRecoilValue } from 'recoil';
 import { postApi } from '@api/post.api';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import { userState } from '@utils/atom/user.atom';
+import { userState } from '@utils/atoms/user.atom';
 
 export default function PostWrite() {
   const router = useRouter();
@@ -16,6 +16,11 @@ export default function PostWrite() {
   const [titleValue, setTitleValue] = useState<string>('');
   const [githubLinkValue, setGithubLinkValue] = useState<string>('');
   const [contentValue, setContentValue] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>('');
+
+  const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(e.target.value);
+  };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitleValue(e.target.value);
@@ -32,7 +37,8 @@ export default function PostWrite() {
   const handleSave = async () => {
     await postApi.addPost({
       title: titleValue,
-      githubLink: githubLinkValue,
+      repositoryUrl: githubLinkValue,
+      category: selectedOption,
       contents: contentValue,
       userInfo: userStateValue,
     });
@@ -45,7 +51,7 @@ export default function PostWrite() {
   };
 
   return (
-    <div className={'h-screen'}>
+    <div className={'h-screen mx-auto w-4/6'}>
       <div className={'flex flex-col gap-4 mb-10'}>
         <div className={'flex gap-6 items-center'}>
           <Input
@@ -62,6 +68,44 @@ export default function PostWrite() {
             placeholder={'GitHub Link를 올려주세요.'}
             style={'text-3xl font-extrabold'}
           />
+        </div>
+        <div className={'flex gap-6 items-center text-white'}>
+          <label>
+            <input
+              type="radio"
+              value="FRONTEND"
+              checked={selectedOption === 'FRONTEND'}
+              onChange={handleOptionChange}
+            />
+            FRONTEND
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="BACKEND"
+              checked={selectedOption === 'BACKEND'}
+              onChange={handleOptionChange}
+            />
+            BACKEND
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="APP"
+              checked={selectedOption === 'APP'}
+              onChange={handleOptionChange}
+            />
+            APP
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="CODING_TEST"
+              checked={selectedOption === 'CODING_TEST'}
+              onChange={handleOptionChange}
+            />
+            CODING_TEST
+          </label>
         </div>
       </div>
       <MDEditor
